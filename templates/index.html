@@ -1,6 +1,6 @@
 {{define "Index"}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -12,10 +12,12 @@
         crossorigin="anonymous"></script>
     <title>Alura loja</title>
 </head>
+<nav class="navbar navbar-light bg-light mb-4">
+    <a class="navbar-brand" href="/">Alura Loja</a>
+</nav>
+
 <body>
-    <nav class="navbar navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="/">Alura Loja</a>
-    </nav>
+   
     <div class="container">
         <section class="card">
             <div>
@@ -41,6 +43,10 @@
                 </table>
             </div>
         </section>
+
+        <div class="card-footer">
+            <a href="/new" class="btn btn-primary mb-2">Novo Produto</a>
+        </div>
 
     </div>
 </body>

@@ -8,5 +8,5 @@ import (
 func CarregaRotas() {
 
 	http.HandleFunc("/", controllers.Index)
-
+	http.HandlerFunc("/new", controllers.New)
 }
