@@ -24,8 +24,8 @@ func New(w http.ResponseWriter, r *http.Request) {
 	temp.ExecuteTemplate(w, "New", nil)
 }
 
-func Insert(w http.ResponseWriter, r *http.Request){
-	if r.Method == "POST"{
+func Insert(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
 		nome := r.FormValue("nome")
 		descricao := r.FormValue("descricao")
 		preco := r.FormValue("preco")
@@ -39,8 +39,15 @@ func Insert(w http.ResponseWriter, r *http.Request){
 		if err != nil {
 			log.Println("Erro na conversão do quantidade")
 		}
-		models.CriarNovoProduto(nome, descricao, precoConvertidoParaFloat,quantidadeConvertidaParaInt)
+		models.CriarNovoProduto(nome, descricao, precoConvertidoParaFloat, quantidadeConvertidaParaInt)
 
 	}
 	http.Redirect(w, r, "/", 301)
+}
+func Delete(w http.ResponseWriter, r *http.Request) {
+
+	idDoProduto := r.URL.Query().Get("id")
+	models.DeletaProduto(idDoProduto)
+	http.Redirect(w, r, "/", 301)
+
 }
